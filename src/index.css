@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Jomolhari&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jomolhari&family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-smooth: antialiased ;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.custom-light {
+  font-weight: 300; 
+}
+.sticky-header-shadow {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+.colorButtonShadow {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+.navLinkBoxShadow {
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.05), -2px 0px 5px 1px rgba(0,0,0,0.05);
+}
+
+.footerLinks {
+  position: relative;
+  font-family: Poppins, sans-serif;
+  font-weight: 300 ;
+  color: #848484;
+  text-decoration: none;
+  cursor: pointer;
+  transition: ease-out 300ms;
+}
+.footerLinks:hover {
+  color: #ff4135;
+}
+.footerLinks::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px; /* Initial height of the border */
+  background-color: #ff4135; /* Color of the border */
+  transform: scaleX(0); /* Initially hidden by scaling to 0 */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out; /* Transition for the border */
+}
+.footerLinks:hover::after {
+  transform: scaleX(1); /* Scale the border to full width on hover */
+  transform-origin: bottom left;
+}
+.footerLinks:not(:hover)::after {
+  transform: scaleX(0);
+  transform-origin: bottom left;
+}
+.footerLinks:hover::after {
+  width: 100%;
+}
+
+/* Tailwind CSS */
+.custom-button {
+  position: relative;
+  @apply border-2 border-black max-w-[fit-content] px-[40px] py-[15px] text-[18px] font-semibold
+}
+
+.custom-button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  background-color: black;
+  color: white;
+  z-index: -1;
+  transition: transform ease-out 0.3s;
+}
+
+.custom-button:hover::after {
+  transform: scaleY(1);
+}
+
+.custom-button2 {
+  position: relative;
+  @apply z-10 bg-[#222222] font-poppins font-semibold text-white text-[1rem] max-w-[fit-content] px-[35px] py-[10px]
+}
+
+.custom-button2::after {
+  content: "";
+  position: absolute;
+  z-index: 9999;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  background-color: #ff4135;
+  color: white;
+  z-index: -1;
+  transition: transform ease-out 0.5s;
+}
+
+.custom-button2:hover::after {
+  transform: scaleY(1);
+}
+
+.darkFooterBtn {
+  position: relative;
+  @apply z-10 bg-[#ff4135] font-poppins font-semibold text-white text-[1rem] max-w-[fit-content] px-[35px] py-[10px]
+}
+
+.darkFooterBtn::after {
+  content: "";
+  position: absolute;
+  z-index: 9999;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleX(0);
+  transform-origin: center center; /* Modified the transform-origin */
+  transition: transform ease-out 0.3s;  
+  background-color: #222;
+  color: white;
+  z-index: -1;
+}
+
+.darkFooterBtn:hover::after {
+  transform: scaleX(1);
+}
+
+.CartButton {
+  position: relative;
+  @apply z-10 bg-[#222222] font-poppins font-semibold text-white text-[1rem] max-w-[fit-content] px-[35px] py-[12px]
+}
+
+.CartButton::after {
+  content: "";
+  position: absolute;
+  z-index: 9999;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scaleY(0);
+  transform-origin: bottom center;
+  background-color: #ff4135;
+  color: white;
+  z-index: -1;
+  transition: transform ease-out 0.3s;
+}
+
+.CartButton:hover::after {
+  transform: scaleY(1);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.custom-arrow-class {
+  position: absolute;
+  bottom: -20px;
+  right: 2px;
+  display: block;
+  background: red;
+  z-index: 9999;
+}
+
+input[type="radio"] {
+  width: 10px; 
+  height: 10px; 
+  cursor: pointer;
+  accent-color: #ff4135;
+}
+
+.bottom__delay {
+  -webkit-animation-delay: calc(1s * 2.3);
+  animation-delay: calc(1s * 2.3);
+  -webkit-animation-delay: calc(var(--animate-delay) * 2.3);
+  animation-delay: calc(var(--animate-delay) * 2.3);
+}
+
+.right__delay {
+  -webkit-animation-delay: calc(1s * 2.8);
+  animation-delay: calc(1s * 2.8);
+  -webkit-animation-delay: calc(var(--animate-delay) * 2.8);
+  animation-delay: calc(var(--animate-delay) * 2.8); 
+
+  -webkit-animation-duration: calc(1s * 1.4);
+  animation-duration: calc(1s * 1.4);
+  -webkit-animation-duration: calc(var(--animate-duration) * 1.4);
+  animation-duration: calc(var(--animate-duration) * 1.4);
+}
+
+.left__delay {
+  -webkit-animation-delay: calc(1s * 3.2);
+  animation-delay: calc(1s * 3.2);
+  -webkit-animation-delay: calc(var(--animate-delay) * 3.2);
+  animation-delay: calc(var(--animate-delay) * 3.2); 
+  
+  -webkit-animation-duration: calc(1s * 1.5);
+  animation-duration: calc(1s * 1.5);
+  -webkit-animation-duration: calc(var(--animate-duration) * 1.5);
+  animation-duration: calc(var(--animate-duration) * 1.5);
+}
+
+.up__delay {
+  -webkit-animation-delay: calc(1s * 4);
+  animation-delay: calc(1s * 4);
+  -webkit-animation-delay: calc(var(--animate-delay) * 4);
+  animation-delay: calc(var(--animate-delay) * 4); 
+}
+
+.cart-bg::after {
+ content: ""; /* Required for the pseudo-element */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('../src/assets/images/grad-bg1.avif');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transform: scaleX(-1);
+  z-index: -1;
+}
+
+::placeholder {
+  font-family: poppins;
+  font-weight: 300;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 5%);
+}
+
+.cart-item-shadow {
+  width: 20px; /* Adjust the width and height as needed */
+  height: 20px;
+  background-color: rgb(226, 3, 3);
+  border-radius: 50%; /* Makes the element round */
+  box-shadow: 0 0 25px 5px rgba(255, 0, 0, 0.5); /* Adds a shadow with light red color (red with transparency) */
+}
+
+.cart-item-shadow-sticky {
+  width: 25px;
+  height: 25px;
+  background-color: rgb(226, 3, 3);
+  border-radius: 5px; /* Makes the element round */
+  box-shadow: 0 0 25px 5px rgba(255, 0, 0, 0.5); /* Adds a shadow with light red color (red with transparency) */
+}
+
+.cart-icon-black {
+  width: 22px;
+  height: 22px;
+  color: #ffffff;
+  background-color: #222;
+  border-radius: 50%;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+#cart__bgGIF {
+  background: url(./assets/images/cartGIF.gif);
+}
+
+.sec-banner {
+  flex: 1;
+  gap: 20px;
+}
+
+/* Media query for tablets and larger screens */
+@media (min-width: 650px) {
+  .sec-banner {
+    flex: 0 0 calc(45% - 10px); /* 50% width with a small gap */
+  }
+}
+
+#productsSearchBar {
+  width: 15rem;
+  background-color: rgb(246, 254, 255);
+  border: 1px solid #6cd3d6;
+  border-radius: 5px;
+  padding: 0.4rem 1rem;
+  position: relative;
+}
+
+#productsSearchBar::placeholder {
+  font-style: italic;
+  color: #383838;
+  font-size: 1rem;
+}
+
+#searchIcon {
+  color: rgb(3, 28, 58, 0.9);
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%); 
+}
+
+.Products__subHeading {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  cursor: default;
+  text-decoration: none;
+  color: #15B8BF;
+  opacity: 0.7;
+  font-size: 1.2rem;
+  transition: ease-out 300ms;
+  transition: opacity 0ms;
+}
+
+.Products__subHeading:hover {
+  opacity: 1;
+}
+
+.Products__subHeading::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px; /* Initial height of the border */
+  background-color: #15B8BF; /* Color of the border */
+  transform: scaleX(0); /* Initially hidden by scaling to 0 */
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-in-out; /* Transition for the border */
+}
+.Products__subHeading::after {
+  transform: scaleX(1); /* Scale the border to full width on hover */
+  transform-origin: bottom left;
+}
+.Products__subHeading:not(:hover)::after {
+  transform: scaleX(0);
+  transform-origin: bottom left;
+}
+.Products__subHeading::after {
+  width: 100%;
+}
