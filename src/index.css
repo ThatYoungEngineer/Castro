@@ -366,3 +366,16 @@ input[type="radio"] {
 .Products__subHeading::after {
   width: 100%;
 }
+
+#bg_banner {  
+  animation: slide 100s linear infinite;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 1920px 0;
+  }
+}

@@ -122,7 +122,7 @@ const Cart = () => {
                                                 </span>
                                             </span>
                                         </TableCell>
-                                        <TableCell> <h3 className='font-medium text-sm font-poppins text-[#222] sm_desktop:text-[20px]' title='Single item price'> {`$${(cartItem.quantity * cartItem.price).toFixed(2)}`} </h3> </TableCell>
+                                        <TableCell> <h3 className='font-medium text-sm font-poppins text-[#222] sm_desktop:w-20 bg-red-300 sm_desktop:text-[20px]' title='Single item price'> {`$${(cartItem.quantity * cartItem.price).toFixed(2)}`} </h3> </TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>

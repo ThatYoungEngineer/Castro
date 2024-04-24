@@ -10,7 +10,8 @@ import CollectionCard from '../Components/CollectionCard'
 
 import { useState, useEffect } from 'react'
 import { useParams,useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../slice/cartSlice'
 
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined'
 import AddIcon from '@mui/icons-material/Add'
@@ -23,7 +24,7 @@ import YouTubeIcon from '@mui/icons-material/YouTube'
 import GoogleIcon from '@mui/icons-material/Google'
 import NorthEastIcon from '@mui/icons-material/NorthEast'
 
-import React from 'react'
+import productsData from './Products/productsData'
 
 
 const ProductDetails = ( {children} ) => {
@@ -31,11 +32,11 @@ const ProductDetails = ( {children} ) => {
     const [selectedDivIndex, setSelectedDivIndex] = useState(0)
     const [count, setCount] = useState(0)
     const [content, setContent] = useState('description')
-
-    const products = useSelector((state) => state.cart.products)
-
-    const [selectedImage, setSelectedImage] = useState('')
-
+    
+    const products = productsData
+    const dispatch = useDispatch()
+    
+    
     const colorArray = ['bg-black', 'bg-blue-500', 'bg-red-400', 'bg-slate-200', 'bg-purple-600']
   
     const getDivClassName = (index) => {
@@ -70,10 +71,15 @@ const ProductDetails = ( {children} ) => {
     const { productId } = useParams()
     // const history = useHistory()
     const navigate = useNavigate()
-
+    
     const productIdNumber = parseInt(productId, 10)
-
     const product = products.find((product) => product.id === productIdNumber)
+    const [selectedImage, setSelectedImage] = useState(product.img)
+
+    const handleAddToCart = (product) => {
+        dispatch(addToCart(product));
+    };
+
 
     useEffect(() => {
       if (!product) {
@@ -81,11 +87,13 @@ const ProductDetails = ( {children} ) => {
       }
     }, [product])
     
+    console.log(product)
 
   return (
     <div>
         <Preloader />
         <div
+            id='bg_banner'
             className="flex flex-col items-center justify-center py-20 px-0 "
             style={{ backgroundImage: `url(${backgroundBanner})` }}
         >
@@ -133,7 +141,7 @@ const ProductDetails = ( {children} ) => {
                             (5 Reviews)
                         </span>
                     </div>
-                    <h3 className='font-poppins font-medium text-[18px] text-[#222]'>$90.00</h3>
+                    <h3 className='font-poppins font-medium text-[18px] text-[#222]'>${product.price}</h3>
                     <p className='font-poppins font-light text-[15px] text-[#848484]'>
                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. sed ut perspic atis unde omnis iste natus.
                     </p>
@@ -190,7 +198,10 @@ const ProductDetails = ( {children} ) => {
                         <span
                             className='inline-flex relative z-10 max-w-fit hover:text-white'
                         > 
-                            <button className="CartButton" onClick={ () => handleAddToCart()}>
+                            <button 
+                                className="CartButton" 
+                                onClick={() => handleAddToCart(product)}
+                            >
                                 Add To Cart
                             </button>
                         </span>
@@ -353,7 +364,7 @@ const ProductDetails = ( {children} ) => {
                     src={separator}
                     alt=""
                 />
-                <span className='w-full mt-16 lg_tablet:mt-10 flex items-center justify-center md_tablet:justify-center gap-8 md_tablet:gap-20 lg_tablet:gap-8 sm_desktop:justify-between flex-wrap'>
+                <span className='w-full mt-16 lg_tablet:mt-10 flex items-center justify-center md_tablet:justify-center gap-8 md_tablet:gap-20 lg_tablet:gap-8 sm_desktop:justify-center sm_desktop:gap-x-[2%] sm_desktop:gap-y-10   flex-wrap'>
                     {products.slice(0, 8).map((product) => (
                         <div key={product.id}>
                         <CollectionCard

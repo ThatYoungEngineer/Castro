@@ -17,6 +17,7 @@ function Team() {
     <div>
         {/* <Preloader /> */}
         <div
+            id='bg_banner'
             className="flex flex-col items-center justify-center py-20 px-0 "
             style={{ backgroundImage: `url(${backgroundBanner})` }}
         >

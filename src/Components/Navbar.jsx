@@ -29,7 +29,7 @@ const Navbar = () => {
     const [Menu, setMenu] = useState(false)
     const [StickyNav, setStickyNav] = useState(false)
 
-    const cartItems = useSelector((state) => state.cart.cartItems);
+    const cartItems = useSelector((state) => state.cart.cartItems)
 
     useEffect(() => {
         if (Menu) {
@@ -79,7 +79,7 @@ const Navbar = () => {
 
     return (
         <>
-            <header 
+            <header   //sticky nav
                 className={`hidden sticky z-50 top-0 ${StickyNav ? 'lg_tablet:flex ' : ''}  bg-white items-center justify-between 
                 px-10 sm_desktop:px-20 md_desktop:px-24 xm_desktop:px-44 lg_desktop:px-80 sticky-header-shadow`} 
                 data-aos="fade-down"
@@ -387,12 +387,12 @@ const Navbar = () => {
                                     {cartItems.length >= 1 && (
                                         
                                         <div
-                                        className='absolute right-[2px] top-[-20px] sm_desktop:right-[-12px] sm_desktop:top-[-23px] md_desktop:right-[2px] md_desktop:top-[-10px] lg_desktop:right-[-15px] lg_desktop:top-[-20px]
-                                        z-10 flex items-center justify-center cart-icon-black
-                                        animate__animated animate__flash animate__slow animate__infinite'
-                                    >
-                                        <p className='text-center text-[12px] font-bold'>{cartItems.length}</p>                                        
-                                    </div>
+                                            className='absolute right-[2px] top-[-20px] sm_desktop:-right-[12px] sm_desktop:top-[-23px] md_desktop:-right-[.5rem] md_desktop:-top-[.8rem] lg_desktop:right-[-15px] lg_desktop:top-[-20px]
+                                            z-10 flex items-center justify-center cart-icon-black
+                                            animate__animated animate__flash animate__slow animate__infinite'
+                                        >
+                                           <p className='text-center text-[12px] font-bold'>{cartItems.length}</p>                                        
+                                        </div>
                                     )}
                                 </span>
                             </Link>

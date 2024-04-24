@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import NorthOutlinedIcon from '@mui/icons-material/NorthOutlined'
 
 
-function backToTop() {
+const ScrollToTop = () => {
+
     const [showSticky, setShowSticky] = useState(false);
 
   useEffect(() => {
@@ -19,6 +20,7 @@ function backToTop() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
+
   }, []);
 
   const handleBackToTop = () => {
@@ -31,13 +33,13 @@ function backToTop() {
     return (
         <button
             onClick={handleBackToTop}
-            className={`fixed z-40 bottom-32 right-[5%] lg ${showSticky ? 'block' : 'hidden'} px-5 py-3
+            className={`fixed z-40 bottom-[10%] right-[5%] ${showSticky ? 'block' : 'hidden'} px-5 py-3
               w-10 h-10 sm_desktop:w-16 sm_desktop:h-16 rounded-full bg-[#ff4135] hover:bg-black text-white transition ease-linear duration-200
               flex items-center justify-center animate__animated animate__fadeInUpBig`}
         >
-            <NorthOutlinedIcon style={{fontSize: '30px'}} />
+          <NorthOutlinedIcon style={{fontSize: '30px'}} />
         </button>
     )
 }
 
-export default backToTop
+export default ScrollToTop

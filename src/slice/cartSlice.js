@@ -25,9 +25,8 @@ import { toast } from 'react-toastify'
 
 const initialState = {
     cartItems: [],
-    products: productsData,
-    totalQuantity: null,
-    totalPrice: null
+    totalQuantity: 0,
+    totalPrice: 0
 }
 
 const cartSlice = createSlice({
@@ -39,7 +38,7 @@ const cartSlice = createSlice({
             const existingItemIndex = state.cartItems.findIndex(
                 (item) => item.id === newItem.id
             )
-            if (existingItemIndex >=0 ) {
+            if (existingItemIndex >= 0 ) {
                 state.cartItems[existingItemIndex].quantity += 1
                 // localStorage.setItem('cartItems', JSON(action.payload))
                 toast.info("Item Quantity increased")

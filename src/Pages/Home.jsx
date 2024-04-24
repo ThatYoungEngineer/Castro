@@ -6,6 +6,7 @@ import NewsCard from '../Components/NewsCard'
 import Carousal from "../Components/Carousal"
 
 import categoriesData from './Categories/categoriesData'
+import productsData from './Products/productsData'
 
 import Sales from '../assets/images/sale-banner.jpg'
 import Shape2 from '../assets/images/shape-2.png'
@@ -27,11 +28,9 @@ import NorthEastIcon from '@mui/icons-material/NorthEast'
 
 import { Link } from 'react-router-dom'
 
-import { useSelector } from 'react-redux'
-
 const Home = () => {
 
-  const products = useSelector( (state) => state.cart.products)
+  const products = productsData
 
   const persons = [Person1, Person2, Person3]
 
@@ -85,6 +84,7 @@ const Home = () => {
           {products.slice(0, 8).map((product) => (
             <div key={product.id}>
               <CollectionCard
+                productId={product.id}
                 image={product.img}
                 desc={product.name}
                 price={product.price}

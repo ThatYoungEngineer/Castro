@@ -20,6 +20,7 @@ import RestoreScroll from './Components/RestoreScroll'
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 import 'animate.css'
+import ScrollToTop from './Components/ScrollToTop'
 
 const App = () => {
 
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
+      <ScrollToTop />
     </Router>
   );
 }

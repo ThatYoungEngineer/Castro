@@ -7,11 +7,13 @@ import SearchIcon from '@mui/icons-material/Search'
 import CollectionCard from '../../Components/CollectionCard'
 import { useSelector } from 'react-redux'
 
+import productsData from './productsData'
+
 const Products = () => {
     const [page, setPage] = useState(1)
     const [searchQuery, setSearchQuery] = useState('')
 
-    const products = useSelector((state) => state.cart.products)
+    const products = productsData
     const productsPerPage = 8
 
     const filteredProducts = products.filter((product) =>
@@ -37,6 +39,7 @@ const Products = () => {
     return (
         <div>
             <div
+                id='bg_banner'
                 className="flex flex-col items-center justify-center py-20 px-0 "
                 style={{ backgroundImage: `url(${backgroundBanner})` }}
             >
