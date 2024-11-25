@@ -25,7 +25,7 @@ function CollectionCard(props) {
                 {props.product && 
                     <Link to={`/products/${props.productId}`}>
                         <img
-                            className='cursor-pointer'
+                            className='cursor-pointer h-[270px] w-[350px] bg-gray-200'
                             src={props.image}
                             alt={props.desc}
                         />
@@ -33,7 +33,7 @@ function CollectionCard(props) {
                 }
                 {props.team &&
                     <img
-                        className='cursor-pointer group-hover/overlay:scale-[1.05] transition-all duration-500'
+                        className='cursor-pointer group-hover/overlay:scale-[1.05] transition-all duration-500 h-[270px] w-[350px] bg-gray-200'
                         src={props.image}
                         alt={props.name}
                     />       
