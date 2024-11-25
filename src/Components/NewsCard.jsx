@@ -27,7 +27,7 @@ function NewsComponent(props) {
           </span>
           <p className='font-poppins text-[15px] text-[#848484]'> {props.desc} </p>
           <div className='group/rm max-w-fit cursor-pointer'>
-            <h2 className='font-poppins font-medium text-[1rem]'> Read More <NorthEastIcon className='group-hover/rm:rotate-45 transition-transform ease-linear duration-300'/> </h2>
+            <h2 className='font-poppins font-medium text-[1rem]'> Read More <NorthEastIcon className='transform transition-transform ease-linear duration-300 group-hover/rm:rotate-45'/> </h2>
           </div>
         </div>
       </div>
